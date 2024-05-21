@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Add the blog generator here:
+    'blog_generator'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,8 @@ ROOT_URLCONF = 'ai_blog_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #Add the templates created here, to render the html files
+        'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,9 +77,14 @@ WSGI_APPLICATION = 'ai_blog_app.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    #Update and use the database here maybe with AWS managed db
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER':'postgres',
+        'PASSWORD':'Azonto112',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
